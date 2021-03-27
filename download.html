@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <meta property="og:title" content="Better - Enrich your life with gratitude" />
         <meta property="og:description" content="Rediscover joy in your life" />
         <meta property="og:image" content="assets/images/opengraph-en.png" />
@@ -12,11 +12,11 @@
                 margin: 0;
                 background-color: #f0f1f5;
                 font-family: serif;
-            }
-            body {
+                height: -webkit-fill-available;
                 height: 100vh;
             }
             a {
+                color: transparent;
                 text-decoration: none;
             }
             nav {
@@ -25,10 +25,11 @@
 
             }
             main {
-                height:100%;
+                height: -webkit-fill-available;
                 position: relative;
                 margin-left: 35px;
                 margin-right: 35px;
+                height: calc(100vh - calc(100vh - 100%));
             }
 
             #wrapper-logo {
@@ -48,10 +49,6 @@
                 width: 100%;
                 bottom: 30px;
             }
-            #input-page-url {
-                /* display: none; */
-            }
-                
             .ico-link {
                 width: 25px;
                 height: 25px;   
@@ -152,17 +149,12 @@
                 var playStoreLink = "https://play.google.com/store/apps/details?id=com.gratitude_journal";
                 var copyText = document.createElement('input');
                 var isIOS = navigator.userAgent.match(/ipad|iphone|iPad|iPhone/i);
-
+                
                 document.querySelector("#btn-share").addEventListener('click', function() {
                     if (navigator.share) {
                         navigator.share({ 
-                            title: title,
-                            text: desc,
+                            text: title,
                             url: document.location.href 
-                        }).then(function() {
-                            alert("succeess");
-                        }).catch(function() {
-                            alert("fail");
                         });
                     }
                     else {
@@ -174,6 +166,7 @@
                             var range = document.createRange();
                             range.selectNodeContents(copyText);
                             var selection = window.getSelection();
+                            selection.removeAllRanges();
                             selection.addRange(range);
                         }
                         else {
@@ -199,7 +192,7 @@
                 if (isIOS) {
                     window.open(appStoreLink);
                 }
-                else {
+                else if (navigator.userAgent.includes("Android")) {
                     location.replace(playStoreLink);
                 }
             };
