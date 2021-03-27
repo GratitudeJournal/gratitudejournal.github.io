@@ -1,19 +1,209 @@
 <!DOCTYPE html>
 <html>
-    <h1>Download Better - Gratitude journal</h1>
-    <a href='https://play.google.com/store/apps/details?id=com.gratitude_journal&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-    <a href='https://apps.apple.com/app/better-gratitude-journal/id1552446696'>
-        <img alt='Download on the App Store' src='https://www.familybankonline.com/wp-content/uploads/2017/07/apple-app-store-badge.png'/>
-    </a>
-    <script type="text/javascript">
-        var appStoreLink = "https://apps.apple.com/app/better-gratitude-journal/id1552446696";
-        var playStoreLink = "https://play.google.com/store/apps/details?id=com.gratitude_journal";
-        if (navigator.userAgent.includes("iPad") || navigator.userAgent.includes("iPhone")) {
-            location.replace(appStoreLink);
-        }
-        if (navigator.userAgent.includes("Android")) {
-            document.location = playStoreLink;
-        }
-    </script>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Better - Enrich your life with gratitude" />
+        <meta property="og:description" content="Rediscover joy in your life" />
+        <meta property="og:image" content="assets/images/opengraph-en.png" />
+
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                background-color: #f0f1f5;
+                font-family: serif;
+            }
+            body {
+                height: 100vh;
+            }
+            a {
+                text-decoration: none;
+            }
+            nav {
+                text-align: right;
+                padding-top: 35px;
+
+            }
+            main {
+                height:100%;
+                position: relative;
+                margin-left: 35px;
+                margin-right: 35px;
+            }
+
+            #wrapper-logo {
+                position: absolute;
+                top: 50%;
+                margin-top: -132px;
+                width: 100%;
+            }
+            #img-logo {
+                width: 140px;
+                height: 132px;
+                margin: 0 auto;
+                display: block;
+            }
+            #wrapper-download {
+                position: absolute;
+                width: 100%;
+                bottom: 30px;
+            }
+            #input-page-url {
+                /* display: none; */
+            }
+                
+            .ico-link {
+                width: 25px;
+                height: 25px;   
+                margin-left: 20px;
+            }
+            .btn {
+                width: 100%;
+                padding-top: 17.5px;
+                padding-bottom: 17.5px;
+                background-color: white;
+                border-radius: 27.5px;
+                box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.06);
+                margin-top: 15.5px;
+                cursor: pointer;
+                text-align: center;
+            }
+            .ico-market {
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+            }
+            .btn-text {
+                font-size: 16px;
+                line-height: 1.25;
+                color: #000000;
+                margin-left: 10px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <nav>
+                <a class="ico-link" href="https://www.instagram.com/better.gratitude/">
+                    <img src="assets/icons/ico-insta.png" 
+                         srcset="assets/icons/ico-insta@2x.png 2x, assets/icons/ico-insta@3x.png 3x" />
+                </a>
+                <a id="btn-share" 
+                   class="ico-link"
+                   href="javascript:void(0)">
+                    <img src="assets/icons/ico-share.png" 
+                         srcset="assets/icons/ico-share@2x.png 2x, assets/icons/ico-share@3x.png 3x" />
+                </a>
+            </nav>
+            <div id="wrapper-logo">
+                <img id="img-logo" 
+                    src="assets/images/better-logo.png"
+                    srcset="assets/images/better-logo@2x.png 2x, assets/images/better-logo@3x.png 3x"
+                />
+            </div>
+            
+            <div id="wrapper-download">
+                <div class="btn" id="btn-appstore">
+                    <img class="ico-market"
+                        alt='Download on the App Store' 
+                        src='assets/icons/ico-aapl.png'
+                        srcset="assets/icons/ico-aapl@2x.png 2x, assets/icons/ico-aapl@3x.png 3x"
+                    />
+                    <span class="btn-text">App Store</span>
+                </div>
+                <div class="btn" id="btn-playstore">
+                    <img class="ico-market"
+                        alt='Get it on Google Play'
+                        src='assets/icons/ico-googl@2x.png'
+                        srcset="assets/icons/ico-googl@2x.png 2x, assets/icons/ico-googl@3x.png 3x"
+                    /><span class="btn-text">Play Store</span>
+                </div>
+            </div>
+        </main>
+
+        <script type="text/javascript">
+            var language = navigator.language.slice(0,2);
+            var fallbackLanguage = 'en';
+            var title = (function() {
+                var data = {
+                    'en': 'Better - gratitude journal',
+                    'ko': 'Better - 하루 한장, 보다 나은 하루',
+                };
+                return data[language] || data[fallbackLanguage];
+            })();
+            var description = (function() {
+                var data = {
+                    'en': 'Rediscover joy in your life',
+                    'ko': '하루 5분, 쉽게 쓰는 감성 일기',
+                };
+                return data[language] || data[fallbackLanguage];
+            })();
+            var messageCopied = (function() {
+                var data = {
+                    'en': 'Copied link to clipboard, share with others!',
+                    'ko': '주소를 클립 보드에 복사 했습니다. 주변에 공유해 보세요!'
+                };
+                return data[language] || data[fallbackLanguage];
+            })();
+
+            window.onload = function() {
+                var appStoreLink = "https://apps.apple.com/app/better-gratitude-journal/id1552446696";
+                var playStoreLink = "https://play.google.com/store/apps/details?id=com.gratitude_journal";
+                var copyText = document.createElement('input');
+                var isIOS = navigator.userAgent.match(/ipad|iphone|iPad|iPhone/i);
+
+                document.querySelector("#btn-share").addEventListener('click', function() {
+                    if (navigator.share) {
+                        navigator.share({ 
+                            title: title,
+                            text: desc,
+                            url: document.location.href 
+                        }).then(function() {
+                            alert("succeess");
+                        }).catch(function() {
+                            alert("fail");
+                        });
+                    }
+                    else {
+                        document.body.appendChild(copyText);
+                        copyText.setAttribute('value', document.location.href);
+
+                        /* Select the text field */
+                        if (isIOS) {
+                            var range = document.createRange();
+                            range.selectNodeContents(copyText);
+                            var selection = window.getSelection();
+                            selection.addRange(range);
+                        }
+                        else {
+                            copyText.select();
+                        }
+                        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                        /* Copy the text inside the text field */
+                        document.execCommand("copy");
+
+                        document.body.removeChild(copyText);
+                        alert(messageCopied);
+                    }
+                   
+                });
+                document.querySelector("#btn-appstore").addEventListener('click', function() {
+                    window.open(appStoreLink);
+                });
+                document.querySelector("#btn-playstore").addEventListener('click', function() {
+                    window.open(playStoreLink);
+                });
+
+                if (isIOS) {
+                    window.open(appStoreLink);
+                }
+                else {
+                    location.replace(playStoreLink);
+                }
+            };
+        </script>
+    </body>
 </html>
 
